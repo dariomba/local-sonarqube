@@ -4,8 +4,15 @@
 	"name": "Go and local SonarQube",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
 	"dockerComposeFile": "docker-compose.yml",
+	"forwardPorts": [8080,9000],
 	"service": "devcontainer",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"postAttachCommand": ["./init-sonar.sh"],
+
+	"features": {
+		"ghcr.io/devcontainers/features/dotnet:2": {},
+		"ghcr.io/devcontainers/features/go:1": {}
+	},
 
 	"customizations": {
 		"vscode": {
@@ -15,9 +22,15 @@
 				"golang.go",
 				"roemer.gotaskr-vscode",
 				"ms-azuretools.vscode-docker",
-				"GitHub.vscode-github-actions"
+				"GitHub.vscode-github-actions",
+				"rangav.vscode-thunder-client"
 			]
 		}
+	},
+
+	"hostRequirements": {
+		"cpus": 8,
+		"memory": "8gb"
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.

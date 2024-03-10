@@ -1,17 +1,15 @@
-FROM mcr.microsoft.com/devcontainers/base:bullseye
+FROM mcr.microsoft.com/devcontainers/dotnet:0-7.0
+
+ARG SONAR_DIR=/opt/sonarscanner
 
 # Prepare apt
-RUN apt-get update && export DEBIAN_FRONTEND=noninteractive
-
-# Install Go
-ENV PATH="/usr/local/go/bin:$PATH"
-RUN export GO_VERSION="1.22.1" \
-    && wget "https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz" \
-    && tar -C /usr/local -xzf "go${GO_VERSION}.linux-amd64.tar.gz" \
-    && rm "go${GO_VERSION}.linux-amd64.tar.gz"
-
-# Install GCC
-RUN apt-get install -y gcc libgl1-mesa-dev xorg-dev
-
-# Install mingw-w64
-RUN apt-get install -y mingw-w64
+RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
+    && apt-get -y install --no-install-recommends \
+    unzip \
+    && rm -rf /var/lib/apt/lists/* \
+    && sudo mkdir -p $SONAR_DIR && cd $SONAR_DIR  \
+    && sudo wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip \
+    && sudo unzip sonar-scanner-cli-5.0.1.3006-linux.zip \
+    && sudo rm sonar-scanner-cli-5.0.1.3006-linux.zip \
+    && sudo chmod +x sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner \
+    && sudo ln -s $SONAR_DIR/sonar-scanner-5.0.1.3006-linux/bin/sonar-scanner /usr/local/bin/sonar-scanner

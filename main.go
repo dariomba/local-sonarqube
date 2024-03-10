@@ -8,8 +8,6 @@ import (
 )
 
 func main() {
-	// Hello world, the web server
-
 	helloHandler := func(w http.ResponseWriter, req *http.Request) {
 		param1 := req.URL.Query().Get("param1")
 		if param1 == "" {
