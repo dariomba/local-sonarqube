@@ -7,6 +7,7 @@
 	"forwardPorts": [8080,9000],
 	"service": "devcontainer",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+	"postStartCommand": "git config --global --add safe.directory ${containerWorkspaceFolder}",
 	"postAttachCommand": ["./init-sonar.sh"],
 
 	"features": {
