@@ -46,10 +46,17 @@ then
       # Generate the sonar-project.properties file
       echo "sonar.projectKey=$PROJECT_NAME
 sonar.projectName=$PROJECT_NAME
-sonar.sources=.
 sonar.host.url=http://localhost:9000
 sonar.login=$token
-sonar.sourceEncoding=UTF-8" > sonar-project.properties
+sonar.sourceEncoding=UTF-8
+sonar.language=go
+sonar.sources=.
+sonar.exclusions=**/*_test.go,**/vendor/**,**/testdata/*
+sonar.tests=.
+sonar.test.inclusions=**/*_test.go
+sonar.test.exclusions=**/vendor/**
+sonar.go.coverage.reportPaths=cov.out" > sonar-project.properties
+
 
       echo "sonar-project.properties file has been generated."
     else
