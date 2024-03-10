@@ -9,7 +9,7 @@
         {
             "label": "Sonar",
             "type": "shell",
-            "command": "sonar-scanner"
+            "command": "go test -short -coverprofile=cov.out && sonar-scanner"
         }
     ]
 }
