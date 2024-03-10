@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Server",
+            "type": "shell",
+            "command": "go run main.go"
+        },
+        {
+            "label": "Sonar",
+            "type": "shell",
+            "command": "sonar-scanner"
+        }
+    ]
+}

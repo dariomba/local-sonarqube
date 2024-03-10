@@ -23,14 +23,10 @@
 				"roemer.gotaskr-vscode",
 				"ms-azuretools.vscode-docker",
 				"GitHub.vscode-github-actions",
-				"rangav.vscode-thunder-client"
+				"rangav.vscode-thunder-client",
+				"actboy168.tasks"
 			]
 		}
-	},
-
-	"hostRequirements": {
-		"cpus": 8,
-		"memory": "8gb"
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
