@@ -13,17 +13,17 @@ In order to be able to run this project correctly, you should have the following
 To build this project, you can follow any of the following approaches:
 - Simply, open this project with VS Code and it will detect a dev container configuration file showing a new notification, then, you can just click on "Reopen in Container".
 
-![VS Code Reopen in Container notification](images\vscode_notification.png)
+![VS Code Reopen in Container notification](./images/vscode_notification.png)
 
 - Also, you can open your VS Code command palette with the command "Ctrl + Shift + P" and search for "Reopen in Container" command from Dev Containers extension.
 
-![Reopen in Container command](images\reopen_command.png)
+![Reopen in Container command](./images/reopen_command.png)
 
 After the container build is completed, the 'init-sonar.sh' script is executed, generating the necessary configuration file from SonarQube and creating the project 'local-sonarqube' on the local SonarQube server using the default credentials. Once the script execution is finished, you can click on the 'Sonar' task to run the unit tests and execute the 'sonar-scanner' command.
 
-![Sonar task](images\sonar_task.jpg)
+![Sonar task](./images/sonar_task.jpg)
 
 Then, you can go to your http://localhost:9000, enter the default credentials "admin:admin" and check the result of the SonarQube scanner.
 
-![Sonar scanner](images\sonar_scanner.png)
+![Sonar scanner](./images/sonar_scanner.png)
 
